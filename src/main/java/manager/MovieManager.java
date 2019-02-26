@@ -21,7 +21,6 @@ public class MovieManager {
 
     public void addMovie(Movie movie) {
 
-        GenreManager genreManager = new GenreManager();
         try {
             String query = "INSERT INTO movie(`name`,`description`,`created_date`,`pic_url`,`year`,`director`,`user_id`)" +
                     "VALUES (?,?,?,?,?,?,?)";
@@ -123,6 +122,24 @@ public class MovieManager {
                 return movie;
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    List<Movie> getMoviesByGenreId(int id) {
+        try {
+            Statement statement = connection.createStatement();
+            String query = "SELECT movie_id FROM genre_movie WHERE genre_id = " + id;
+            ResultSet resultSet = statement.executeQuery(query);
+            List<Movie> movies = new ArrayList<>();
+            while (resultSet.next()) {
+                Movie movie = getMovieById(resultSet.getInt(1));
+                movies.add(movie);
+
+            }
+            return movies;
         } catch (SQLException e) {
             e.printStackTrace();
         }
