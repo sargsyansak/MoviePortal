@@ -128,7 +128,7 @@ public class MovieManager {
         return null;
     }
 
-    List<Movie> getMoviesByGenreId(int id) {
+   public List<Movie> getMoviesByGenreId(int id) {
         try {
             Statement statement = connection.createStatement();
             String query = "SELECT movie_id FROM genre_movie WHERE genre_id = " + id;
