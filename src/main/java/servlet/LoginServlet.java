@@ -24,10 +24,10 @@ public class LoginServlet extends HttpServlet {
         User user = userManager.getEmailByPassword(email, password);
         HttpSession session = req.getSession();
         if (user != null) {
-            session.setAttribute("user", user);
+            session.setAttribute("admin", user);
             req.getRequestDispatcher("/admin/home").forward(req, resp);
         } else {
-            resp.sendRedirect("/WEB-INF/login.jsp");
+            req.getRequestDispatcher("/WEB-INF/login.jsp").forward(req,resp);
         }
     }
 }

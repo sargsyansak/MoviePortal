@@ -19,7 +19,7 @@ public class AdminHomeServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User) req.getSession().getAttribute("user");
+        User user = (User) req.getSession().getAttribute("admin");
         if (user != null) {
             req.setAttribute("allMovie", movieManager.getAllMovies());
             req.setAttribute("allGenre", genreManager.getGenres());

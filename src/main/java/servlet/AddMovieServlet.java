@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@WebServlet(urlPatterns = "/user/addMovie")
+@WebServlet(urlPatterns = "/admin/addMovie")
 
 public class AddMovieServlet extends HttpServlet {
     GenreManager genreManager = new GenreManager();
@@ -30,7 +30,7 @@ public class AddMovieServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User) req.getSession().getAttribute("user");
+        User user = (User) req.getSession().getAttribute("admin");
         if (user == null) {
             resp.sendRedirect("/login.jsp");
         } else {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/user/addGenre")
+@WebServlet(urlPatterns = "/admin/addGenre")
 
 public class AddGenreServlet extends HttpServlet {
     GenreManager genreManager = new GenreManager();
@@ -19,7 +19,7 @@ public class AddGenreServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        User user = (User) req.getSession().getAttribute("user");
+        User user = (User) req.getSession().getAttribute("admin");
         if (user != null) {
             Genre genre = new Genre();
             genre.setName(name);
