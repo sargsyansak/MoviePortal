@@ -25,7 +25,7 @@ public class DetailGenreServlet extends HttpServlet {
             resp.sendRedirect("/login.jsp");
         }else {
             req.setAttribute("detailGenre", movie);
-            req.getRequestDispatcher("/WEB-INF/detailGenre.jsp").forward(req,resp);
+            req.getRequestDispatcher("/WEB-INF/genreDetail.jsp").forward(req,resp);
         }
     }
 }

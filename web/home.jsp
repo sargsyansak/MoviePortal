@@ -32,17 +32,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="full">
     <div class="menu">
         <ul>
-            <li><a class="active" href="index.html"><i class="home"></i></a></li>
-            <li><a href="videos.html">
+            <li><a class="active" href="/home"><i class="home"></i></a></li>
+            <li><a href="#">
                 <div class="video"><i class="videos"></i><i class="videos1"></i></div>
             </a></li>
-            <li><a href="reviews.html">
+            <li><a href="#">
                 <div class="cat"><i class="watching"></i><i class="watching1"></i></div>
             </a></li>
-            <li><a href="404.html">
+            <li><a href="#">
                 <div class="bk"><i class="booking"></i><i class="booking1"></i></div>
             </a></li>
-            <li><a href="contact.html">
+            <li><a href="#">
                 <div class="cnt"><i class="contact"></i><i class="contact1"></i></div>
             </a></li>
         </ul>
@@ -58,22 +58,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <form>
                         <input type="text" value="Search.." onfocus="this.value = '';"
                                onblur="if (this.value == '') {this.value = 'Search..';}"/>
-                        <input type="submit" value="">
+                        <%--<input type="submit" value="">--%>
                     </form>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="header-info">
-                <h1>BIG HERO 6</h1>
-                <p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>
-                <p class="review">Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 8,5/10</p>
-                <p class="review reviewgo">Genre &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; Animation, Action,
-                    Comedy</p>
-                <p class="review">Release &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; 7 November 2014</p>
-                <p class="special">The special bond that develops between plus-sized inflatable robot Baymax, and
-                    prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.</p>
-                <a class="video" href="#"><i class="video1"></i>WATCH TRAILER</a>
-                <a class="book" href="#"><i class="book1"></i>BOOK TICKET</a>
+                <h1>ALL GENRES</h1>
+
+
+                <c:forEach var="genres" items="${allGenres}">
+                    <a href="/detailGenre?Id=${genres.id}" style="color: white">
+                        <hr>
+                        <br>
+                            ${genres.name}
+
+                    </a>
+                </c:forEach>
+
             </div>
         </div>
         <div class="review-slider">
@@ -149,10 +151,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="more-reviews">
             <ul id="flexiselDemo2">
-                <li><img src="images/m1.jpg" alt=""/></li>
-                <li><img src="images/m2.jpg" alt=""/></li>
-                <li><img src="images/m3.jpg" alt=""/></li>
-                <li><img src="images/m4.jpg" alt=""/></li>
+                <c:forEach var="film" items="${allMovies}">
+                    <a href="/detailMovie?Id=${film.id}">
+                        <li><img src="/getImage?picName=${film.picUrl}"/></li>
+                        name: ${film.name}
+                        description: ${film.description}
+
+                        MOVIE DETAIL</a>
+                </c:forEach>
+
             </ul>
             <script type="text/javascript">
                 $(window).load(function () {
