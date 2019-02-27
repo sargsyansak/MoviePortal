@@ -67,11 +67,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h1>ALL GENRES</h1>
 
 
-                <c:forEach var="genres" items="${allGenres}">
-                    <a href="/detailGenre?Id=${genres.id}" style="color: white">
-                        <hr>
-                        <br>
-                            ${genres.name}
+                <c:forEach var="genres" items="${allGenres}"><br>
+                    <a class="b-home" href="/detailGenre?Id=${genres.id}" style="color: white">
+
+
+                        <br>${genres.name}<br>
 
                     </a>
                 </c:forEach>
